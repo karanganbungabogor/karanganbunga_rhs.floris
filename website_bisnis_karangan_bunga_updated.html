@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BungaKita Florist - Karangan bunga untuk berbagai momen, pesan mudah melalui WhatsApp.">
+<title>BungaKita Florist | Karangan Bunga</title>
+<style>
+:root{
+  --cream:#fffaf6;--rose:#b84f68;--rose2:#8f3049;--pink:#f7dce3;
+  --green:#486454;--dark:#262326;--muted:#777078;--white:#fff;
+  --line:#eadfe0;--shadow:0 18px 50px rgba(74,38,47,.10)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;background:var(--cream);color:var(--dark);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,250,246,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;font-weight:bold;color:var(--rose2)}
+.logo span{color:var(--green)}
+.links{display:flex;gap:25px;font-family:Arial,sans-serif;font-size:14px;color:#514b4e}
+.links a:hover{color:var(--rose)}
+.nav-cta{font-family:Arial,sans-serif;background:var(--rose);color:white;padding:11px 17px;border-radius:999px;font-weight:700}
+.hero{padding:82px 0 70px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:2px;color:var(--rose);font-size:12px;font-weight:800}
+h1{font-size:clamp(45px,6vw,75px);line-height:1.02;letter-spacing:-2.5px;margin:15px 0 20px}
+.hero p{font-family:Arial,sans-serif;color:var(--muted);font-size:17px;max-width:570px}
+.actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;font-family:Arial,sans-serif;font-weight:800;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--rose);color:white;box-shadow:0 10px 25px rgba(184,79,104,.22)}
+.secondary{border:1px solid var(--line);background:white}
+.hero-art{position:relative;min-height:470px;border-radius:40px;background:linear-gradient(145deg,#f6dfe4,#fff7f2);box-shadow:var(--shadow);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.flower{font-size:170px;filter:drop-shadow(0 20px 20px rgba(100,40,50,.12));transform:rotate(-8deg)}
+.flower-card{position:absolute;bottom:22px;left:22px;background:white;border:1px solid var(--line);border-radius:18px;padding:15px 18px;box-shadow:var(--shadow);font-family:Arial,sans-serif}
+.flower-card b{display:block}.flower-card small{color:var(--muted)}
+section{padding:76px 0}
+.section-head{text-align:center;max-width:680px;margin:0 auto 38px}
+.section-head h2{font-size:clamp(31px,4vw,46px);line-height:1.1;margin:8px 0 12px}
+.section-head p{font-family:Arial,sans-serif;color:var(--muted)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:white;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(74,38,47,.05)}
+.photo{height:220px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.card-body{padding:22px}
+.card-body h3{font-size:24px}.card-body p{font-family:Arial,sans-serif;color:var(--muted);font-size:14px;margin:7px 0 15px}
+.price{font-family:Arial,sans-serif;font-size:20px;font-weight:900;color:var(--rose2);margin-bottom:15px}
+.card .btn{width:100%;font-size:14px}
+.benefits{background:#f5ebe8}
+.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.benefit{text-align:center;padding:25px 16px}.benefit .icon{font-size:34px}.benefit h3{margin:9px 0 5px}.benefit p{font-family:Arial,sans-serif;color:var(--muted);font-size:13px}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{padding:28px;border:1px solid var(--line);border-radius:20px;background:white}
+.num{font-family:Arial,sans-serif;color:var(--rose);font-weight:900;font-size:13px}.step h3{font-size:22px;margin:8px 0}.step p{font-family:Arial,sans-serif;color:var(--muted);font-size:14px}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.quote{background:white;border:1px solid var(--line);padding:24px;border-radius:20px}.stars{color:#d99a37;letter-spacing:2px}.quote p{margin:10px 0;font-size:15px}.person{font-family:Arial,sans-serif;color:var(--muted);font-size:12px}
+.faq{max-width:760px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:18px 0}.faq summary{cursor:pointer;font-weight:bold;font-size:18px}.faq p{font-family:Arial,sans-serif;color:var(--muted);padding-top:10px}
+.cta{background:var(--green);color:white;border-radius:28px;padding:55px 30px;text-align:center}.cta h2{font-size:clamp(31px,4vw,48px);line-height:1.1}.cta p{font-family:Arial,sans-serif;color:#e1e9e4;max-width:620px;margin:12px auto 25px}.cta .primary{background:white;color:var(--green)}
+footer{margin-top:75px;background:#29252a;color:#eee;padding:40px 0 25px;font-family:Arial,sans-serif}.footer{display:flex;justify-content:space-between;gap:30px}.footer h3{font-family:Georgia,serif;color:#fff;font-size:22px}.footer p{color:#bbb;font-size:13px;margin-top:8px}.copy{border-top:1px solid #484348;margin-top:25px;padding-top:18px;color:#999;font-size:12px}
+@media(max-width:850px){
+  .links{display:none}.hero-grid{grid-template-columns:1fr;gap:35px}.hero{padding-top:55px}.hero-art{min-height:330px}
+  .products,.testimonials,.process{grid-template-columns:1fr 1fr}.benefit-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  h1{letter-spacing:-1.5px}.products,.testimonials,.process,.benefit-grid{grid-template-columns:1fr}
+  section{padding:58px 0}.nav-cta{padding:9px 13px;font-size:12px}.flower{font-size:125px}.hero-art{min-height:290px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav">
+    <a href="#" class="logo">BungaKita <span>Florist</span></a>
+    <div class="links">
+      <a href="#produk">Produk</a>
+      <a href="#cara">Cara Pesan</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <!-- GANTI nomor WhatsApp di semua tombol wa.me di file ini -->
+    <a class="nav-cta" href="https://wa.me/6281234567890?text=Halo%20BungaKita%20Florist,%20saya%20ingin%20memesan%20karangan%20bunga.">Pesan Sekarang</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Karangan Bunga • Buket • Florist</div>
+      <h1>Rangkaian bunga untuk momen yang tak terlupakan.</h1>
+      <p>Kirim pesan, ucapan selamat, belasungkawa, atau kejutan spesial dengan karangan bunga yang dirangkai sepenuh hati.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://wa.me/6281234567890?text=Halo%20BungaKita%20Florist,%20saya%20ingin%20memesan%20karangan%20bunga.">💬 Pesan via WhatsApp</a>
+        <a class="btn secondary" href="#produk">Lihat Katalog</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="flower">💐</div>
+      <div class="flower-card"><b>Fresh & Handmade</b><small>Dirangkai sesuai pesanan</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="produk">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Katalog</div>
+      <h2>Pilih rangkaian untuk momenmu</h2>
+      <p>Daftar harga papan bunga dan rangkaian bunga sesuai katalog yang kamu lampirkan.</p>
+    </div>
+    <div class="products">
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/papan_550000.jpg" alt="Papan Bunga 550.000"></div>
+        <div class="card-body"><h3>Papan Bunga 550.000</h3><p>Ukuran 200 × 125 cm</p><div class="price">Rp550.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Papan%20Bunga%20550.000.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/papan_700000.jpg" alt="Papan Bunga 700.000"></div>
+        <div class="card-body"><h3>Papan Bunga 700.000</h3><p>Ukuran 200 × 150 cm</p><div class="price">Rp700.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Papan%20Bunga%20700.000.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/papan_750000.jpg" alt="Papan Bunga 750.000"></div>
+        <div class="card-body"><h3>Papan Bunga 750.000</h3><p>Ukuran 200 × 125 cm</p><div class="price">Rp750.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Papan%20Bunga%20750.000.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/papan_850000.jpg" alt="Papan Bunga 850.000"></div>
+        <div class="card-body"><h3>Papan Bunga 850.000</h3><p>Ukuran 200 × 150 cm</p><div class="price">Rp850.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Papan%20Bunga%20850.000.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/papan_950000.jpg" alt="Papan Bunga 950.000"></div>
+        <div class="card-body"><h3>Papan Bunga 950.000</h3><p>Ukuran 200 × 150 cm</p><div class="price">Rp950.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Papan%20Bunga%20950.000.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/papan_1000000.jpg" alt="Papan Bunga 1.000.000"></div>
+        <div class="card-body"><h3>Papan Bunga 1.000.000</h3><p>Ukuran 200 × 150 cm</p><div class="price">Rp1.000.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Papan%20Bunga%201.000.000.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/papan_1500000.jpg" alt="Papan Bunga 1.500.000"></div>
+        <div class="card-body"><h3>Papan Bunga 1.500.000</h3><p>Ukuran 200 × 150 cm • Full Bunga</p><div class="price">Rp1.500.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Papan%20Bunga%201.500.000.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/standing_850000.jpg" alt="Standing Flowers"></div>
+        <div class="card-body"><h3>Standing Flowers</h3><p>Rangkaian standing flowers</p><div class="price">Rp850.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Standing%20Flowers.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/bunga_mega_650000.jpg" alt="Bunga Mega"></div>
+        <div class="card-body"><h3>Bunga Mega</h3><p>Rangkaian bunga meja</p><div class="price">Rp650.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Bunga%20Mega.">Pesan Sekarang</a></div>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="katalog_produk/bunga_salib_700000.jpg" alt="Bunga Salib"></div>
+        <div class="card-body"><h3>Bunga Salib</h3><p>Rangkaian bunga salib</p><div class="price">Rp700.000</div><a class="btn primary" href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20memesan%20Bunga%20Salib.">Pesan Sekarang</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Kenapa kami?</div><h2>Lebih mudah, lebih berkesan.</h2></div>
+    <div class="benefit-grid">
+      <div class="benefit"><div class="icon">🌷</div><h3>Bunga Segar</h3><p>Dipilih dan dirangkai dengan perhatian.</p></div>
+      <div class="benefit"><div class="icon">🎨</div><h3>Bisa Custom</h3><p>Warna dan desain bisa disesuaikan.</p></div>
+      <div class="benefit"><div class="icon">🚚</div><h3>Antar Pesanan</h3><p>Layanan pengiriman sesuai area.</p></div>
+      <div class="benefit"><div class="icon">💬</div><h3>Fast Response</h3><p>Konsultasi pesanan lewat WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cara">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Cara pesan</div><h2>Pesan dalam 3 langkah</h2></div>
+    <div class="process">
+      <div class="step"><div class="num">01 — PILIH</div><h3>Pilih produk</h3><p>Pilih jenis karangan bunga dari katalog atau minta desain custom.</p></div>
+      <div class="step"><div class="num">02 — KONSULTASI</div><h3>Kirim detail</h3><p>Berikan tulisan ucapan, warna, ukuran, alamat, dan waktu pengiriman.</p></div>
+      <div class="step"><div class="num">03 — SELESAI</div><h3>Pesanan dikirim</h3><p>Pesanan dirangkai lalu dikirim sesuai jadwal yang disepakati.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Testimoni</div><h2>Yang pelanggan kami katakan</h2><p>Ganti contoh berikut dengan testimoni pelanggan asli.</p></div>
+    <div class="testimonials">
+      <div class="quote"><div class="stars">★★★★★</div><p>“Bunganya cantik, sesuai request, dan pengirimannya tepat waktu. Penerimanya suka banget.”</p><div class="person">— Rina, pelanggan</div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>“Admin responsif dan membantu pilih desain. Hasilnya kelihatan jauh lebih bagus dari ekspektasi.”</p><div class="person">— Andi, pelanggan</div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>“Pesan mendadak tetap dibantu. Papan bunganya rapi dan tulisannya jelas.”</p><div class="person">— Sari, pelanggan</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head"><div class="kicker">FAQ</div><h2>Pertanyaan umum</h2></div>
+    <div class="faq">
+      <details><summary>Apakah bisa pesan custom?</summary><p>Bisa. Kamu dapat mengatur warna, jenis bunga, ukuran, tulisan, dan budget melalui WhatsApp.</p></details>
+      <details><summary>Berapa lama proses pembuatan?</summary><p>Umumnya 1–3 jam untuk rangkaian sederhana. Untuk pesanan besar atau jumlah banyak, waktu dapat disesuaikan.</p></details>
+      <details><summary>Apakah bisa dikirim ke lokasi penerima?</summary><p>Bisa, selama lokasi berada dalam area pengiriman. Biaya kirim dapat disesuaikan berdasarkan jarak.</p></details>
+      <details><summary>Bagaimana cara membayar?</summary><p>Ganti bagian ini dengan metode pembayaran bisnis kamu, misalnya transfer bank, QRIS, atau payment gateway.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <h2>Siap kirim bunga hari ini?</h2>
+      <p>Ceritakan momen dan kebutuhanmu. Kami bantu pilihkan rangkaian yang paling cocok.</p>
+      <a class="btn primary" href="https://wa.me/6281234567890?text=Halo%20BungaKita%20Florist,%20saya%20ingin%20konsultasi%20pesanan.">💬 Konsultasi via WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer">
+      <div><h3>BungaKita Florist</h3><p>Karangan bunga untuk setiap momen berharga.</p></div>
+      <div><p>📍 Kota kamu, Indonesia</p><p>📞 0812-3456-7890</p><p>🕐 Setiap hari 08.00–21.00</p></div>
+    </div>
+    <div class="copy">© 2026 BungaKita Florist. Semua hak dilindungi.</div>
+  </div>
+</footer>
+
+</body>
+</html>
